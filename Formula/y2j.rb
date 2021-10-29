@@ -6,7 +6,6 @@ class Y2j < Formula
   desc "YAML to JSON converter"
   homepage "https://github.com/hbagdi/y2j"
   version "1.0.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
