@@ -5,11 +5,11 @@
 class Hit < Formula
   desc "HTTP requests made sane again."
   homepage "https://github.com/hbagdi/hit"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
-    url "https://github.com/hbagdi/hit/releases/download/v0.1.0/hit_0.1.0_darwin_all.tar.gz"
-    sha256 "9cd292aafde68834b1670649ddcec50de77b8fb06fa64ea4024854ff0f5c1cb9"
+    url "https://github.com/hbagdi/hit/releases/download/v0.2.0/hit_0.2.0_darwin_all.tar.gz"
+    sha256 "f1a00807dae186b71060aba88f69fbfcea2aa62654139d902a151e7c155e023d"
 
     def install
       bin.install "hit"
@@ -17,17 +17,17 @@ class Hit < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/hbagdi/hit/releases/download/v0.1.0/hit_0.1.0_linux_amd64.tar.gz"
-      sha256 "393588093d883ddd659c1249c5ad9b1962b2951a6131cf0d3aba0af35831aac3"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hbagdi/hit/releases/download/v0.2.0/hit_0.2.0_linux_arm64.tar.gz"
+      sha256 "de2ad54d637c89a7052775164cb4be9b2fc8f9b090f4d83841b057dd3390027a"
 
       def install
         bin.install "hit"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hbagdi/hit/releases/download/v0.1.0/hit_0.1.0_linux_arm64.tar.gz"
-      sha256 "09fbfe07150d213cff3b748591cce0a9defbcd88e8c4c0f700c79f8833710619"
+    if Hardware::CPU.intel?
+      url "https://github.com/hbagdi/hit/releases/download/v0.2.0/hit_0.2.0_linux_amd64.tar.gz"
+      sha256 "fdf5ef6b9cbebddc94456f7ddd3ce75a47ac84ab5cc25aa720d388cb3bb099c4"
 
       def install
         bin.install "hit"
